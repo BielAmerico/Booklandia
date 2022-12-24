@@ -17,8 +17,17 @@ public class BookService {
 		return this.bookRepository.save(bookEntity);
 	}
 
-	public BookEntity delete(@Valid Long id) {
-		return null;
+	public BookEntity deleteBook(@Valid Long id) {
+		return this.bookRepository.deleteById(id);
+		System.out.println(">>> ID: " + id + " deletado com sucesso!");
+		
+	}
+	public BookEntity findById(@Valid Long id) {
+		System.out.println(">>> ID: "+ id + " buscado com sucesso!");
+		return this.bookRepository.findById(id).get();
+	}
+	public BookEntity updateBook(BookEntity bookEntity) {
+		return this.bookRepository.save(bookEntity);
 	}
 
 }
